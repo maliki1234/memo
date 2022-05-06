@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Login() {
   return (
@@ -20,6 +21,9 @@ export default function Login() {
          <div className="py-1">
            <label htmlFor="password" className='block'> password</label>
            <input type="password"  className='w-full py-2 rounded-full px-4 text-md' />
+         </div>
+         <div className="py-1">
+          <span className="text-xs font-thin text-black"><Link to="/login"> have an account?</Link></span>
          </div>
          <div className="py-4">
            {/* <label htmlFor="email" className='block'> email</label> */}
