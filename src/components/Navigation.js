@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 function Navigation() {
   return (
     <div className="w-full  p-4 flex justify-between space-between bg-red-900">
-      <div className="logo  text-black font-bold text-base  ">My logo</div>
+      <div className="logo  text-black font-bold text-base  "><Link to={"/"}>My logo</Link></div>
       <div className="account">
         {/* <div className="flex  items-center"> */}
           {/* <div className="add mx-2 font-thin text-md text-white">  */}
