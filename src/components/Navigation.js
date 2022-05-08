@@ -18,7 +18,8 @@ function Navigation() {
   }, [logOuti]);
 
  const  logOut =()=>{
-  let localhostUrl = 'http://localhost:4000/user/logout' || 'https://logan-apps.herokuapp.com/user/logout'
+  // 'http://localhost:4000/user/logout' ||
+  let localhostUrl =  'https://logan-apps.herokuapp.com/user/logout'
  
   var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");

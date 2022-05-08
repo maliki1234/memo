@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom'
 export default function Login() {
 
   const { register, handleSubmit } = useForm();
-  let localhostUrl = 'http://localhost:4000/user/login' || 'https://logan-apps.herokuapp.com/user/login'
+  // 'http://localhost:4000/user/login' ||
+  let localhostUrl =  'https://logan-apps.herokuapp.com/user/login'
   const onSubmit = data => {
     console.log('wait')
     data = JSON.stringify(data)

@@ -10,7 +10,8 @@ const SetSessions = async() => {
     // console.log(cookies)
 
   useEffect(() => {
-    let localhostUrl = 'http://localhost:4000/user/getcurrent' || 'https://logan-apps.herokuapp.com/user/getcurrent'
+    // 'http://localhost:4000/user/getcurrent' || 
+    let localhostUrl = 'https://logan-apps.herokuapp.com/user/getcurrent'
  
       var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
