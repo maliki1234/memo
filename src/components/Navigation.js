@@ -5,12 +5,17 @@ import { Link } from 'react-router-dom'
 
 function Navigation() {
   // console.log(sessionStorage.getItem('session'))
-  const [state , setstate] = useState();
-  const b = JSON.parse(sessionStorage.getItem('session')).data
-  setstate(b)
+  const [state , setstate] = useState('');
+  const [logOuti, setlogOuti] = useState(false);
+
+  console.log(state)
+  
+  
   useEffect(() => {
+    const b = JSON.parse(sessionStorage.getItem('session')).data
+    setstate(b)
     
-  }, [logOut]);
+  }, [logOuti]);
 
  const  logOut =()=>{
   let localhostUrl = 'http://localhost:4000/user/logout' || 'https://logan-apps.herokuapp.com/user/logout'
@@ -39,6 +44,7 @@ fetch(localhostUrl, requestOptions)
 .then(result => {
     console.log(result)
     // sessionStorage.setItem('session', result )
+    setlogOuti(true)
 })
 .catch(error => console.log('error', error));
 localStorage.removeItem('session')

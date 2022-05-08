@@ -1,13 +1,13 @@
 // import React from 'react';
 
 import { useEffect, useState } from "react";
-import { useCookies } from "react-cookie";
+// import { useCookies } from "react-cookie";
 
 const SetSessions = async() => {
 
-    const [cookies] = useCookies(['userId']);
-    // const [getItem , setItem , removeItem] = localStorage([])
-    const [state, setstate] = useState([]);
+    // const [cookies] = useCookies(['userId']);
+    const [cook, setcook] = useState(false);
+    // console.log(cookies)
 
   useEffect(() => {
     let localhostUrl = 'http://localhost:4000/user/getcurrent' || 'https://logan-apps.herokuapp.com/user/getcurrent'
@@ -35,15 +35,13 @@ const SetSessions = async() => {
     .then(response => response.text())
     .then(result => {
         // console.log(result)
-        sessionStorage.setItem('session', result )
+       sessionStorage.setItem('session', result )
+       setcook(true)
     })
     .catch(error => console.log('error', error));
     // localStorage.getItem('')
-    
 
-// console.log(`i dont think if am right`)
-
-  }, [cookies]);
+  }, [cook]);
 
 
 
