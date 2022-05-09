@@ -37,14 +37,15 @@ var requestOptions = {
 
 fetch(localhostUrl, requestOptions)
   .then(response => response.text())
-  .then(result => {{
+  .then(result => {
+    // console.log(result)
     result = JSON.parse(result)
     if (result.success) {
       console.log(result)
     }else{
       seterrore(result.data)
     }
-  }})
+  })
   .catch(error => console.log(error));
   };
 
