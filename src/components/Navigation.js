@@ -8,12 +8,15 @@ function Navigation() {
   const [state , setstate] = useState('');
   const [logOuti, setlogOuti] = useState(false);
 
-  console.log(state)
+  // console.log(state)
   
   
   useEffect(() => {
-    const b = JSON.parse(sessionStorage.getItem('session')).data
-    setstate(b)
+    if (sessionStorage.getItem('session')) {
+      const b = JSON.parse(sessionStorage.getItem('session')).data
+      setstate(b)
+    }
+   
     
   }, [logOuti]);
 

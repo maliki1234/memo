@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom'
 
 export default function Login() {
 
   const { register, handleSubmit } = useForm();
+  const [errore, seterrore] = useState("");
   // 'http://localhost:4000/user/login' ||
   let localhostUrl =  'https://logan-apps.herokuapp.com/user/login'
   const onSubmit = data => {
@@ -36,8 +37,15 @@ var requestOptions = {
 
 fetch(localhostUrl, requestOptions)
   .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
+  .then(result => {{
+    result = JSON.parse(result)
+    if (result.success) {
+      console.log(result)
+    }else{
+      seterrore(result.data)
+    }
+  }})
+  .catch(error => console.log(error));
   };
 
 
@@ -57,6 +65,10 @@ fetch(localhostUrl, requestOptions)
            <label htmlFor="email" className='block'> password</label>
            <input type="password" {...register("password" ,{ required: true })}  className='w-full py-2 rounded-full px-4 text-md' />
          </div>
+
+         {errore ? <div className="py-1">
+          <span className="text-xs font-thin italic  text-black">go to your email and comfirm</span>
+         </div>: ''}
 
          <div className="py-1">
           <span className="text-xs font-thin text-black"><Link to="/register"> dont have an account?</Link></span>
