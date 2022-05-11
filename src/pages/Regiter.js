@@ -11,7 +11,7 @@ export default function Login() {
   const onSubmit = data => {
     data = JSON.stringify(data)
     var myHeaders = new Headers();
-    // myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Content-Type", "application/json");
     myHeaders.append('Content-Type', 'application/x-www-form-urlencoded');
 
     myHeaders.append('Access-Control-Allow-Origin', '*');
