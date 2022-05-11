@@ -13,10 +13,10 @@ export default function Login() {
   // let localhostUrl = 'http://localhost:4000/user/login'
   let localhostUrl = 'https://logan-apps.herokuapp.com/user/login'
   const onSubmit = data => {
-    console.log('wait')
+
 
     data = JSON.stringify(data)
-    console.log(data)
+
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append('Accept', 'application/x-www-form-urlencoded');
@@ -38,10 +38,12 @@ export default function Login() {
       .then(result => {
         result = JSON.parse(result)
         if (result.success) {
+
+
           setUserName(true)
           navigate('/viewmemo')
         } else {
-          console.log(result.message)
+
           seterrore(result.message)
         }
       })

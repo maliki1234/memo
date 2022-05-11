@@ -5,8 +5,8 @@ import { useForm } from 'react-hook-form'
 
 export default function Login() {
   const { register, handleSubmit } = useForm();
-  // let localhostUrl = 'http://localhost:4000/user/create'
-  let localhostUrl = 'https://logan-apps.herokuapp.com/user/create'
+  let localhostUrl = 'http://localhost:4000/user/create'
+  // let localhostUrl = 'https://logan-apps.herokuapp.com/user/create'
 
   const onSubmit = data => {
     data = JSON.stringify(data)

@@ -9,8 +9,8 @@ export default function Login() {
 
   const navigate = useNavigate()
 
-  // let localhostUrl = 'http://localhost:4000/memo/create'
-  let localhostUrl = 'https://logan-apps.herokuapp.com/memo/create'
+  let localhostUrl = 'http://localhost:4000/memo/create'
+  // let localhostUrl = 'https://logan-apps.herokuapp.com/memo/create'
 
   const onSubmit = data => {
     data = JSON.stringify(data)
@@ -42,7 +42,7 @@ export default function Login() {
       .then(response => response.text())
       .then(result => {
         result = JSON.parse(result)
-        console.log(result)
+        // console.log(result)
         if (result.success) {
           // console.log('success')
           navigate('/viewmemo')
