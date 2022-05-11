@@ -21,7 +21,7 @@ export default function Login() {
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append('Accept', 'application/x-www-form-urlencoded');
 
-    myHeaders.append('Access-Control-Allow-Origin', '*');
+    myHeaders.append('Access-Control-Allow-Origin', 'https://logan-memo.netlify.app');
     myHeaders.append('Access-Control-Allow-Credentials', 'true');
 
     myHeaders.append('GET', 'POST', 'OPTIONS');
