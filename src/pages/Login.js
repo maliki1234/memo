@@ -39,8 +39,10 @@ export default function Login() {
         result = JSON.parse(result)
         if (result.success) {
 
+          if (!userName) {
+            setUserName(true)
+          }
 
-          setUserName(true)
           navigate('/viewmemo')
         } else {
 
