@@ -10,6 +10,7 @@ export default function Login() {
 
   const onSubmit = data => {
     data = JSON.stringify(data)
+    console.log(data)
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append('Content-Type', 'application/x-www-form-urlencoded');
