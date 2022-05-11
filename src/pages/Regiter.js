@@ -16,6 +16,7 @@ export default function Login() {
 
     myHeaders.append('Access-Control-Allow-Origin', '*');
     myHeaders.append('Access-Control-Allow-Credentials', 'true');
+    myHeaders.append("Access-Control-Allow-Headers", "X-Requested-With")
 
     myHeaders.append('GET', 'POST', 'OPTIONS');
 
