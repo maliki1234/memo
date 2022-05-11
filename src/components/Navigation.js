@@ -75,7 +75,6 @@ function Navigation() {
 
         myHeaders.append('Access-Control-Allow-Origin', '*');
         myHeaders.append('Access-Control-Allow-Credentials', 'true');
-
         myHeaders.append('GET', 'POST', 'OPTIONS');
 
         var requestOptions = {

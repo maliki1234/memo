@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
 
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit } = useForm();
 
 
   const navigate = useNavigate()
