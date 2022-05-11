@@ -25,14 +25,6 @@ export default function Login() {
     myHeaders.append('Access-Control-Allow-Credentials', 'true');
 
     myHeaders.append('GET', 'POST', 'OPTIONS');
-
-
-    // var raw = JSON.stringify({
-    //   "userName": "abubakari",
-    //   "email": "malikikowero@gmail.com",
-    //   "password": "maliki"
-    // });
-
     var requestOptions = {
       method: 'POST',
       headers: myHeaders,
@@ -44,7 +36,6 @@ export default function Login() {
     fetch(localhostUrl, requestOptions)
       .then(response => response.text())
       .then(result => {
-        // console.log(result)
         result = JSON.parse(result)
         if (result.success) {
           setUserName(true)
