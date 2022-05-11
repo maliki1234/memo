@@ -1,21 +1,79 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 export default function Login() {
+
+  const [state, setstate] = useState(null);
+  console.log(state)
+
+  useEffect(() => {
+
+
+    // let localhostUrl = 'http://localhost:4000/memo/readmemymemo'
+    let localhostUrl = 'https://logan-apps.herokuapp.com/user/readmemymemo'
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append('Accept', 'application/x-www-form-urlencoded');
+
+    myHeaders.append('Access-Control-Allow-Origin', '*');
+    myHeaders.append('Access-Control-Allow-Credentials', 'true');
+
+    myHeaders.append('GET', 'POST', 'OPTIONS');
+    var requestOptions = {
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow',
+      credentials: "include"
+    };
+
+    fetch(localhostUrl, requestOptions)
+      .then(response => response.text())
+      .then(result => {
+        // console.log(result)
+        let jsonResult = JSON.parse(result)
+        setstate(jsonResult)
+        console.log(jsonResult)
+        if (jsonResult.success) {
+          console.log(jsonResult.data)
+          setstate(jsonResult.data)
+        } else {
+          // setUserName(false)
+          setstate(null)
+        }
+        // setUserName(true)
+      })
+      .catch(error => console.log('error', error));
+    // localStorage.removeItem('session')
+
+
+
+
+  }, []);
+
+
+
+
   return (
-   <div className="w-full h-screen bg-gray-300  flex justify-center">
-         <div className="absolute right-3/4 opacity-25  rounded-full border-8 border-blue-900 xl h-full w-full">
+    <div className="w-full h-screen bg-gray-300  flex justify-center">
+      <div className="absolute right-3/4 opacity-25  rounded-full border-8 border-blue-900 xl h-full w-full">
+      </div>
+      {/* <d`iv className="w-ful py-2 "></div> */}
+      <div className="w-7/12 my-12  ">
+        {
+          state.map(element => {
+            return (
+              <div className="relative pl-4 h-auto py-2 border-2 boder-black rounded-md">
+                <h3 className="title font-bold text-xl text-black"> {element.tittle}</h3>
+                <p className="tex-sm  text-gray-600 font-thin">{element.desc}.</p>
+                <span className="text-gray-400 font-semi-bold text-xs">{element.time}</span>
+              </div>
+            )
+          })
+        }
+
+
+      </div>
     </div>
-       {/* <d`iv className="w-ful py-2 "></div> */}
-       <div className="w-7/12 my-12  ">
-       
-         <div className="relative pl-4 h-auto py-2 border-2 boder-black rounded-md">
-         <h3 className="title font-bold text-xl text-black"> title</h3>
-         <p  className="tex-sm  text-gray-600 font-thin">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint laudantium obcaecati natus enim pariatur, qui deleniti. Quae necessitatibus quo temporibus. Ipsa modi maxime sunt vel praesentium ullam, consequuntur voluptas tempore.</p>
-         <span className="text-gray-400 font-semi-bold text-xs">12-12-12</span>
-         </div>
-         
-       </div>
-   </div>
 
   )
 }

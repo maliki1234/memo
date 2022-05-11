@@ -14,7 +14,7 @@ const SetSessions = async() => {
     let localhostUrl = 'https://logan-apps.herokuapp.com/user/getcurrent'
  
       var myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
+  // myHeaders.append("Content-Type", "application/json");
   myHeaders.append('Accept', 'application/x-www-form-urlencoded');
   
   myHeaders.append('Access-Control-Allow-Origin', '*');
