@@ -10,10 +10,10 @@ export default function Login() {
 
   const onSubmit = data => {
     data = JSON.stringify(data)
-    console.log(data)
+    // console.log(data)
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-    myHeaders.append('Content-Type', 'application/x-www-form-urlencoded');
+    // myHeaders.append('Content-Type', 'application/x-www-form-urlencoded');
 
     myHeaders.append('Access-Control-Allow-Origin', 'https://logan-memo.netlify.app');
     myHeaders.append('Access-Control-Allow-Credentials', 'true');

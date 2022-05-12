@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
+import { FcEmptyTrash } from 'react-icons/fc'
 
 export default function Login() {
 
   const [state, setstate] = useState(null);
-
+  const [reloadMemo, setreloadMemo] = useState(false);
 
   useEffect(() => {
     // let localhostUrl = 'http://localhost:4000/memo/readmemymemo'
@@ -45,9 +46,18 @@ export default function Login() {
 
 
 
-  }, []);
+  }, [reloadMemo]);
 
 
+
+  const deleteMemo = (e, b) => {
+    e.preventDefault()
+
+    console.log(e)
+    console.log('memememememememe')
+    setreloadMemo(true)
+
+  }
 
 
   return (
@@ -65,7 +75,16 @@ export default function Login() {
                 <span className="text-gray-400 font-semi-bold text-xs">{element.time}</span>
               </div>
             )
-          }) : " "
+          }) : <div className="relative pl-4 m-6 h-auto py-2 overflow-auto border-2 boder-black rounded-md">
+            <h3 className="title font-bold text-xl text-black"> </h3>
+            <p className="tex-md  text-gray-600 font-thin"></p>
+            <span className="text-gray-400 font-semi-bold text-xs"></span>
+            <div className="flex justify-end ">
+              <FcEmptyTrash className='cursor-pointer '
+                onClick={(e) => deleteMemo(e, 'me')}
+              />
+            </div>
+          </div>
         }
 
 
